@@ -1,0 +1,18 @@
+.sectionOne {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url("https://wallpapercave.com/wp/wp2577314.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.card {
+  color: #fff;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.sectionTwo {
+  height: 100vh;
+}

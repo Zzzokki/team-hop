@@ -1,0 +1,19 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 1px solid red;
+}
+.innerContainer {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.innerContainer > div {
+  display: flex;
+  align-items: center;
+  border: 1px solid red;
+  gap: 16px;
+}
