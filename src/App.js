@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { BlogPage, HomePage, PostPage } from "./pages";
 import "./App.css";
-import { Navbar } from "./components";
+import { Navbar, Footer } from "./components";
 import { ThemeProvider } from "./providers/ThemeProvider";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
           <Route path="post" element={<PostPage />} />
         </Routes>
 
-        {/* <Footer /> */}
+        <Footer />
       </BrowserRouter>
     </ThemeProvider>
   );

@@ -13,6 +13,15 @@
   flex-direction: column;
   gap: 16px;
 }
+
 .sectionTwo {
+  overflow: hidden;
+}
+.cards {
   height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.cards > div {
+  display: flex;
 }
