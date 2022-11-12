@@ -1,12 +1,32 @@
+import axios from "axios";
+import { useEffect } from "react";
 import { useState } from "react";
-import { Button, Card, Container } from "react-bootstrap";
+import { Button, Card, Container, Spinner } from "react-bootstrap";
 import styles from "../styles/pages/HomePage.module.css";
+
+const baseUrl = "https://dummyapi.io/data/v1/";
 
 export const HomePage = () => {
   const [pos, setPos] = useState(0);
+  const [data, setData] = useState(null);
 
   const goRight = () => setPos((prev) => prev + 1);
   const goLeft = () => setPos((prev) => prev - 1);
+
+  useEffect(() => {
+    axios
+      .get(baseUrl + "user", {
+        headers: {
+          "app-id": "636f2f24e8d0ffd9c83fc52f",
+        },
+      })
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div>
@@ -54,7 +74,10 @@ export const HomePage = () => {
 
       {/* Section 3 */}
 
-      <div></div>
+      <div>
+        {!data && <Spinner />}
+        {data && data.data.map((item) => <Item {...item} />)}
+      </div>
     </div>
   );
 };
@@ -63,7 +86,7 @@ const Item = (props) => {
   return (
     <Card style={{ width: 300, marginRight: 16 }}>
       <Card.Body>
-        <Card.Title>Card Title {props.index}</Card.Title>
+        <Card.Title>{props.firstName}</Card.Title>
         <Card.Text>{props.text}</Card.Text>
         <Button variant="primary">{props.buttonText}</Button>
       </Card.Body>
